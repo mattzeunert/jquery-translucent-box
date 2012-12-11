@@ -1,0 +1,16 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script src="jquery-translucent-box.js"></script>
+<script>
+	$(document).ready(function(){
+		$("#content").translucentBox(.5, "white", {"border-radius": "4px"});
+	});
+</script>
+
+<div style="width: 600px; height: 400px; background: #000066;overflow:auto">
+	<div style="margin-left:300px; margin-top:100px;width: 200px;padding:10px;" id="content">
+		Hello world.<br><br>
+		<div style="padding: 10px; background:red">
+			This div isn't translucent.
+		</div>
+	</div>
+</div>
