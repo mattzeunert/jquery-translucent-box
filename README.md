@@ -18,5 +18,8 @@ The background color of the translucent background. If this is white and you put
 
 Additional CSS that needs to be added to the translucent background box. For example if the content div has rounded corners these also need to be added to the translucent background box.
     
+License
+=======
 
+Licensed under CC0 - I don't care what you do with it.
 
