@@ -5,55 +5,31 @@
             var element = $(this);
             var ieOpacity = Math.round(opacity * 100);
             
-            var relativeContainer = $("<div>")
-                .css("position", "relative");
-            element.wrap(relativeContainer);
-            relativeContainer = element.parent();
-            var absoluteTopRightCss = {
-                "position": "absolute",
-                "top": "0px",
-                "left": "0px"
-            };
-            element.css(absoluteTopRightCss)
-                .css("z-index", "1");
             var background = $("<div>")
-                .css(absoluteTopRightCss)
                 .css(additionalBackgroundBoxCss)
                 .css({
+                	"position": "absolute",
+                	"top": "0px",
+                	"left": "0px",
                     "background": color,
                     "opacity": opacity, 
-                    "width": element.outerWidth(),
-                    "height": element.outerHeight(),
-                    "margin": element.css("margin"),
                     "-ms-filter": "alpha(opacity=" + ieOpacity + ")"
-                })
-                .css("background", color)
-                .css("opacity", opacity)
-                .appendTo(relativeContainer);
-            
-        
-            
-        });
+                });
+                
+            var randomClass = "rand" + Math.floor(Math.random() * 9999999);
+                  
+            var contentWrapper = $("<div>")
+            	.css("position", "absolute")
+            	.css("z-index", "1")
+            	.addClass(randomClass);
+                  
+            element.children().wrapAll(contentWrapper)
+          	element.append(background);
+          	element.children().wrapAll("<div style='position: relative'></div>");
+          	
+          	$(background).css("width", $("." + randomClass).width());
+          	$(background).css("height", $("." + randomClass).height());
+          	$("." + randomClass).removeClass(randomClass);
+         });
     }
 })(jQuery);
-
-(function( $ ){
-
-  $.fn.lockDimensions = function( type ) {  
-
-    return this.each(function() {
-
-      var $this = $(this);
-
-      if ( !type || type == 'width' ) {
-        $this.width( $this.width() );
-      }
-
-      if ( !type || type == 'height' ) {
-        $this.height( $this.height() );
-      }
-
-    });
-
-  };
-})( jQuery );
