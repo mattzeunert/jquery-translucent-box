@@ -23,9 +23,9 @@
             	.css("z-index", "1")
             	.addClass(randomClass);
                   
-            element.children().wrapAll(contentWrapper)
+            element.contents().wrapAll(contentWrapper)
           	element.append(background);
-          	element.children().wrapAll("<div style='position: relative'></div>");
+          	element.contents().wrapAll("<div style='position: relative'></div>");
           	
           	$(background).css("width", $("." + randomClass).width());
           	$(background).css("height", $("." + randomClass).height());
